@@ -2,7 +2,7 @@
 description   = B. malayi (current release)
 database = b_malayi
 
-#plugins     = GFFDumper FastaDumper BatchDumper Submitter
+#plugins     = GFFDumper FastaDumper BatchDumper Submitterfff
 
 #quicklink plugins = GFFDumper FastaDumper
 
