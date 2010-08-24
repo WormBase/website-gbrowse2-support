@@ -176,14 +176,17 @@ sub configure_matrices{
   my $self = shift;
   my ($content)=@_;
   my @lines;
-#   my $conf_dir = $self->config_path();
-  my $file     = $self->config_path."/matrices.txt";
-  open (MS, "$file") or die "Error: cannot open file $file: $!.\n";
-  @lines= <MS>;
-  close(MS);
   if ($content) {
       push @lines,split /\n/, $content;
   }
+  if($self->browser_config->global_setting('database') =~ /elegans/i) {
+    #   my $conf_dir = $self->config_path();
+      my $file     = $self->config_path."/matrices.txt";
+      open (MS, "$file") or die "Error: cannot open file $file: $!.\n";
+      push @lines, <MS>;
+      close(MS);
+  }
+
   while (@lines) {
     $_ = shift @lines;
     ~s/^>//;
