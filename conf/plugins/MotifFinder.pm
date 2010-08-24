@@ -179,9 +179,10 @@ sub configure_matrices{
   if ($content) {
       push @lines,split /\n/, $content;
   }
-  if($self->browser_config->global_setting('database') =~ /elegans/i) {
+  my $filename = $self->browser_config->plugin_setting('matrix');
+  if($filename) {
     #   my $conf_dir = $self->config_path();
-      my $file     = $self->config_path."/matrices.txt";
+      my $file     = $self->config_path."/$filename";
       open (MS, "$file") or die "Error: cannot open file $file: $!.\n";
       push @lines, <MS>;
       close(MS);
