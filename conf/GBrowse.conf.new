@@ -3,7 +3,7 @@
 # as the various constants formerly scattered amongst scripts and libraries
 
 [GENERAL]
-config_base            = /usr/local/wormbase/gbrowse2/gbrowse-2.08/conf   # overridden by environment variable GBROWSE_CONF
+config_base            = /usr/local/wormbase/gbrowse2/support-files/conf   # overridden by environment variable GBROWSE_CONF
 htdocs_base            = /usr/local/wormbase/gbrowse2/gbrowse-2.08/html
 url_base               = /gbrowse2
 db_base                = /usr/local/wormbase/gbrowse2/gbrowse-2.08/databases
