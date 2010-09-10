@@ -125,12 +125,7 @@ sub dump {
 				   -alphabet         => $segment->alphabet || 'dna',
 			  );
   $seq->add_date(strftime("%d-%b-%Y",localtime));
-  if(ref $segment->primary_seq eq 'Bio::DB::GFF::RelSegment') {
-        $seq->primary_seq($segment->primary_seq->seq);
-  }else{
-        $seq->primary_seq($segment->primary_seq);
-  }
-  #$seq->primary_seq($segment->primary_seq);
+  $seq->primary_seq($segment->primary_seq);
   $segment->absolute(1);
   my $offset     = $segment->start - 1;
   my $segmentend = $segment->length;
@@ -184,6 +179,7 @@ sub dump {
   } $segment->features(-types => \@filter) );
 
   my $out = new Bio::SeqIO(-format => $config->{fileformat});
+  $seq=$seq->seq  if(ref $seq->primary_seq eq 'Bio::DB::GFF::RelSegment') ;
   my $mime_type = $self->mime_type;
   if ($mime_type =~ /html/) {
     print start_html($segment->desc),h1($segment->desc), start_pre;
