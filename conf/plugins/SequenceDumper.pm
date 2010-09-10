@@ -179,6 +179,7 @@ sub dump {
   } $segment->features(-types => \@filter) );
 
   my $out = new Bio::SeqIO(-format => $config->{fileformat});
+  $seq=$seq->seq  if(ref $seq->primary_seq eq 'Bio::DB::GFF::RelSegment') ;
   my $mime_type = $self->mime_type;
   if ($mime_type =~ /html/) {
     print start_html($segment->desc),h1($segment->desc), start_pre;
