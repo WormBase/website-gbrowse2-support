@@ -125,12 +125,9 @@ sub dump {
 				   -alphabet         => $segment->alphabet || 'dna',
 			  );
   $seq->add_date(strftime("%d-%b-%Y",localtime));
- 
-  if(ref $segment->primary_seq eq 'Bio::DB::GFF::RelSegment'){
- 	 $seq->primary_seq($segment->primary_seq->seq);
-  }else { 
- 	 $seq->primary_seq($segment->primary_seq);
-  }
+  $seq->primary_seq($segment->primary_seq);
+  my $ps = $segment->primary_seq;
+  $seq->primary_seq((ref $ps && $ps->seq) || $ps);  
   $segment->absolute(1);
   my $offset     = $segment->start - 1;
   my $segmentend = $segment->length;
