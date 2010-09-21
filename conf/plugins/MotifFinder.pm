@@ -175,6 +175,7 @@ sub annotate {
 sub configure_matrices{
   my $self = shift;
   my ($content)=@_;
+  %MATRICES=();
   my @lines;
   if ($content) {
       push @lines,split /\n/, $content;
