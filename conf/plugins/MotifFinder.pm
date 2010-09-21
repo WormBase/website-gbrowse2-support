@@ -67,7 +67,7 @@ sub reconfigure {
 sub configure_form {
   my $self = shift;
   my $current_config = $self->configuration;
-  $self->configure_matrices($current_config->{pfm}) unless %MATRICES;
+  $self->configure_matrices($current_config->{pfm}); 
   my @buttons = checkbox_group(-name   => $self->config_name('matrix'),
 			       -values => [sort keys %MATRICES],
 			       -cols   => 4,
@@ -107,7 +107,7 @@ sub annotate {
   my $self = shift;
   my $segment = shift;
   my $config  = $self->configuration;
-  $self->configure_matrices($config->{pfm}) unless %MATRICES;
+  $self->configure_matrices($config->{pfm}) ;
   return unless %MATRICES;
   return unless %$config;
   return unless $config->{on};
