@@ -1,6 +1,9 @@
 package Bio::Graphics::Glyph::wormbase_transcript;
 
 use strict;
+#use lib '/usr/local/wormbase/gbrowse2/current/extlib/lib/perl5/x86_64-linux-gnu-thread-multi:/usr/local/wormbase/gbrowse2/current/extlib/lib/perl5';
+use lib '/usr/local/wormbase/gbrowse2/current/extlib/lib/perl5';
+use lib '/usr/local/wormbase/gbrowse2/current/extlib/lib/perl5/x86_64-linux-gnu-thread-multi';
 use Bio::Graphics::Glyph::transcript2;
 use vars '@ISA','$VERSION';
 @ISA = 'Bio::Graphics::Glyph::transcript2';
@@ -21,6 +24,7 @@ sub bgcolor {
     return $self->color('utr_color') if $self->option('utr_color');
     return $self->color(DEFAULT_UTR_COLOR);
   }
+
   if ($feature->strand >= 0) {
     return $self->color('forwardcolor');
   } else {
@@ -31,6 +35,7 @@ sub bgcolor {
 sub draw_component {
   my $self = shift;
   my $feature = $self->feature;
+
   return if $feature->can('primary_tag') && $feature->primary_tag eq 'exon';
   $self->SUPER::draw_component(@_);
 }
@@ -41,17 +46,17 @@ sub get_description {
 
   # fetch modularity-breaking acedb sequence object information
   # for backward compatibility with wormbase requirements
-  if ($feature->isa('Ace::Sequence::Transcript')) {
-    return eval {
-      my $t       = $feature->info;
-      my $id      = $t->Brief_identification;
-      my $comment = $t->Locus;
-      $comment   .= $comment ? " ($id)" : $id if $id;
-      $comment;
-    };
-  } else {
+#  if ($feature->isa('Ace::Sequence::Transcript')) {
+#    return eval {
+#      my $t       = $feature->info;
+#      my $id      = $t->Brief_identification;
+#      my $comment = $t->Locus;
+#      $comment   .= $comment ? " ($id)" : $id if $id;
+#      $comment;
+#    };
+#  } else {
     return join '; ',eval { $feature->notes };
-  }
+#  }
 }
 
 # Override _subseq() so that segments() is called before merged_segments()
@@ -59,6 +64,7 @@ sub get_description {
 sub _subseq {
   my $class   = shift;
   my $feature = shift;
+
   if ($feature->can('segments')) {
     my @segs = sort {$a->start<=>$b->start} $feature->segments;
     return @segs if @segs;

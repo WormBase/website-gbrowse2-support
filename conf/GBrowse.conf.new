@@ -4,9 +4,9 @@
 
 [GENERAL]
 config_base            = /usr/local/wormbase/gbrowse2/support-files/conf   # overridden by environment variable GBROWSE_CONF
-htdocs_base            = /usr/local/wormbase/gbrowse2/gbrowse-2.20/html
+htdocs_base            = /usr/local/wormbase/gbrowse2/gbrowse-2.21/html
 url_base               = /gbrowse2
-db_base                = /usr/local/wormbase/gbrowse2/gbrowse-2.20/databases
+db_base                = /usr/local/wormbase/gbrowse2/gbrowse-2.21/databases
 tmp_base               = /usr/local/wormbase/gbrowse2/tmp
 
 # These paths are relative to the url base
@@ -38,7 +38,32 @@ session lock type = default
 #session driver = driver:db_file;serializer:default
 #session args   = FileName /usr/local/wormbase/gbrowse2/tmp/sessions.db
 
+# DBI backend to use for uploaded userdata.
+# The SQLite option is the easiest to use and the best tested.
+# if this option is commented out, then GBrowse will
+# try 'DBI::SQLite', 'berkeleydb', 'DBI::mysql' and finally the 'memory'
+# backend.
 
+# NOTICE the double semicolon! This is a DBI Perl module, NOT a DBI connection string.
+
+# For the DBI::mysql adaptor to work, you must give the web user
+# permission to create databases named userdata_% using the following
+# mysql command:
+#    mysql> grant all privileges on `userdata\_%`.* to 'www-data'@localhost identified by 'foobar';
+# Note the backquotes around the database name, and do be sure to replace "foobar" with
+# a more secure password!
+
+# for SQLite
+#upload_db_adaptor = DBI::SQLite
+
+# for Berkeleydb
+#upload_db_adaptor = berkeleydb
+
+# for mysql
+#upload_db_adaptor = DBI::mysql
+#upload_db_host    = localhost
+#upload_db_user    = www-data
+#upload_db_pass    = foobar
 
 # Debug settings
 debug                  = 0
@@ -96,7 +121,7 @@ header =
 
 # At the footer
 footer = <hr />
-         <p style="font-size:small">Generic Genome Browser version 2.20. For questions about the data
+         <p style="font-size:small">Generic Genome Browser version 2.21. For questions about the data
          at this site, please contact its webmaster. For support of the
          browser software <i>only</i>, send email to
          <a href="mailto:gmod-gbrowse@lists.sourceforge.net">gmod-gbrowse@lists.sourceforge.net</a> 
@@ -133,9 +158,9 @@ max keyword results    = 1000
 # "user_accounts" is true, then GBrowse
 # will attempt to use its internal user accounts database
 # to authenticate and/or register users.
-#user_accounts               = 1
-#user_accounts_registration  = 1
-#user_accounts_openid        = 1
+user_accounts               = 1
+user_accounts_registration  = 1
+user_accounts_openid        = 1
 
 # Path to the database -- you will need to create this database and grant all
 # privileges on it to the indicated user.
@@ -143,7 +168,7 @@ max keyword results    = 1000
 user_account_db          = DBI:mysql:gbrowse_login;user=gbrowse;password=gbrowse
 
 # For SQLite
-# user_account_db        = DBI:SQLite:/usr/local/wormbase/gbrowse2/gbrowse-2.20/databases/users.sqlite
+# user_account_db        = DBI:SQLite:/usr/local/wormbase/gbrowse2/gbrowse-2.21/databases/users.sqlite
 
 # For MySQL
 # user_account_db        = DBI:mysql:gbrowse_login;user=gbrowse;password=gbrowse
@@ -169,7 +194,7 @@ email_address          = noreply@gmod.org
 
 # name of the "superuser" who can add public tracks
 admin_account          = admin
-admin_dbs              = /usr/local/wormbase/gbrowse2/gbrowse-2.20/databases/admin_uploads
+admin_dbs              = /usr/local/wormbase/gbrowse2/gbrowse-2.21/databases/admin_uploads
 
 
 ######## DEFAULT DATASOURCE #########
@@ -193,18 +218,18 @@ pam service name = gbrowse
 
 [yeast]
 description   = Yeast chromosomes 1+2 (basic)
-path          = /usr/local/wormbase/gbrowse2/support-files/conf/yeast_simple.conf
+path          = yeast_simple.conf
 
-#[yeast_advanced]
-#description   = Yeast chromosomes 1+2 (advanced)
-#path          = yeast_chr1+2.conf
+[yeast_advanced]
+description   = Yeast chromosomes 1+2 (advanced)
+path          = yeast_chr1+2.conf
 
-#[yeast_renderfarm]
-#description  = Renderfarm demo (gbrowse_slave must be running!)
-#path         = yeast_renderfarm.conf
+[yeast_renderfarm]
+description  = Renderfarm demo (gbrowse_slave must be running!)
+path         = yeast_renderfarm.conf
 
-#[pop_demo]
-#description   = Population Display Demo
-#path          = pop_demo.conf
+[pop_demo]
+description   = Population Display Demo
+path          = pop_demo.conf
 
 
