@@ -9,8 +9,10 @@ label        = sub {
 	}
 description = sub {
 	    my $f = shift;
+	    my ($alias) = $f->attributes('Alias');
+	    $alias =~ s/^\w\w\w\w-//g;
 	    my @values;
-	    push @values, 'C. elegans ortholog: ' . $f->attributes('Alias') if $f->attributes('Alias');
+	    push @values, "C. elegans ortholog: $alias" if $alias;
 	    push @values,join("; ",$f->notes);
 	    return join("; ",@values); 
 	    }
