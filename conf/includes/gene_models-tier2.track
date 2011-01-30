@@ -10,10 +10,15 @@ label        = sub {
 description = sub {
 	    my $f = shift;
 	    my ($alias) = $f->attributes('Alias');
+	    my ($status) = $f->attributes('Status');	      
+	    unless ($alias) {
+         	    ($alias) = $f->attributes('Locus');
+            }
 	    $alias =~ s/^\w\w\w\w-//g;
 	    my @values;
 	    push @values, "C. elegans ortholog: $alias" if $alias;
-	    push @values,join("; ",$f->notes);
+	    push @values,$f->notes;
+	    push @values,$status if $status;
 	    return join("; ",@values); 
 	    }
 citation     = A "merged gene set" of the best gene model at each locus
