@@ -1,0 +1,49 @@
+category     = Genes
+key          = Gene Models
+bgcolor      = sub {shift->strand>0?'violet':'turquoise'}
+fgcolor      = black
+utr_color    = gray
+font2color   = blue
+label        = sub { 
+		my $feature = shift;
+		my $desc = join ' ',$feature->notes;
+		my $name = $feature->display_name;
+		return $desc =~ /(\w{3,4}-\d+\.?\d*)$/ ? "$1 ($name)" : $name;
+	}
+height  = sub {
+	my $feature = shift;
+	return $feature->method =~  /transcript|UTR|coding_exon/i ? 10 : 6;
+	}
+note  = sub {
+	my $feature = shift;
+	my $notes = join ' ',$feature->notes;
+	my $source = $feature->source;
+	$source =~ s/scan-SE.*$//;  # get rid of SE-1.11 part
+	$source =~ s/Coding_transcript//;  # No longer using curated coding gene
+	$notes =~ s/\w{3,4}-\d+$//;   # name is already in label
+    return ''; 
+    }
+description = 1
+balloon hover  = sub {my $f = shift;
+	                my $name = $f->name; 
+                        my $class = $f->class;
+    		        "url:/db/misc/gbrowse_popup?name=$name;class=$class;type=CG";
+	} 
+link        = sub {
+	my $f = shift;
+	return if $f->method eq 'RNAz';
+	my $name = $f->attributes('Gene') || $f->name;
+	return "/db/get?name=$name;class=Gene";
+	}
+citation     = These are gene predictions that have been reviewed by WormBase curators.  The
+	purple and blue colors indicate CDS regions on the forward and
+	reverse strands respectively.  The grey areas represent 5' and
+	3' ESTs assigned automatically using the extents of
+	overlapping ESTs and full-length cDNAs.  The UTR predictions
+	have <b>not</b> been reviewed by WormBase curators, and are
+	known to contain artifacts. If sufficient room is available
+	between features, gene models end with a triangle; if not a
+	small arrow is used.  The tRNAs are predicted by Sean Eddy's
+	tRNAscan program, and miRNA transcripts taken from a variety
+	of literature sources.
+
