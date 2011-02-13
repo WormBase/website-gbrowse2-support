@@ -1,9 +1,9 @@
 [yeast12]
 db_adaptor    = Bio::DB::SeqFeature::Store
 db_args       = -adaptor memory
-                -dir    /usr/local/wormbase/gbrowse2/gbrowse-2.23/databases/yeast_chr1+2
+                -dir    /usr/local/wormbase/services/gbrowse2/gbrowse-2.26/html/databases/yeast_chr1+2
 
 [scaffolds]
 db_adaptor    = Bio::DB::SeqFeature::Store
 db_args       = -adaptor memory
-                -dir    /usr/local/wormbase/gbrowse2/gbrowse-2.23/databases/yeast_scaffolds
+                -dir    /usr/local/wormbase/services/gbrowse2/gbrowse-2.26/html/databases/yeast_scaffolds

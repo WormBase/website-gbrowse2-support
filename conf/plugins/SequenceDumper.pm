@@ -126,7 +126,7 @@ sub dump {
 			  );
   $seq->add_date(strftime("%d-%b-%Y",localtime));
   my $ps = $segment->primary_seq; 
-  $seq->primary_seq(!ref $ps ? Bio::PrimarySeq->new(-seq=>$ps) : $ps->seq);
+  $seq->primary_seq(!ref $ps ? Bio::PrimarySeq->new(-seq=>$ps) : $ps);
   $segment->absolute(1);
   my $offset     = $segment->start - 1;
   my $segmentend = $segment->length;
