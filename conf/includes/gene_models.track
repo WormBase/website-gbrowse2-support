@@ -1,6 +1,11 @@
 category     = Genes
 key          = Gene Models
-bgcolor      = sub {shift->strand>0?'violet':'turquoise'}
+bgcolor      = sub {
+	     my $f = shift;
+	     return 'gray'   if $f->method =~ /pseudogene/i;
+	     return 'voilet' if $f->strand > 0;
+	     return 'turquoise';
+	     }
 fgcolor      = black
 utr_color    = gray
 font2color   = blue
