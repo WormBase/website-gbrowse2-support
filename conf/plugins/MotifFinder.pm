@@ -154,14 +154,14 @@ sub annotate {
 	next unless /^[+-]/;
 	chomp();
 	my ($strand,$pos,$score,$indel_pos,$indel) = split "\t";
-	my $score=sprintf("%.5f",($score-$matrix->{min})/($matrix->{max}-$matrix->{min}));
+	my $formatted_score=sprintf("%.5f",($score-$matrix->{min})/($matrix->{max}-$matrix->{min}));
 	my $feature =  Bio::Graphics::Feature->new(  
 			 -ref=>$ref,
 			 -start=>$pos+$abs_start,
 			 -end=> $pos+$abs_start+$pwm_length-1+$indel,
 			 -strand=> $strand eq "+" ? '+1':'-1',
- 			 -desc=> $score,
-			  -score=> $score,
+ 			 -desc=> $formatted_score,
+			  -score=> $formatted_score,
 	  );
 	$feature_list->add_feature($feature,$type) ;
     }

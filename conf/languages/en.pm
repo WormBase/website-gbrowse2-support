@@ -94,6 +94,21 @@ END
 
    TRACKS   => 'Tracks',
 
+
+# FAVORITE MENU LINKS
+   FAVORITES => 'Show Favorites Only',		
+    
+   SHOWALL   => 'Show All',
+
+   REFRESH_FAV   => 'Refresh',
+    
+   CLEAR_FAV     => 'Clear All Favorites',
+
+   ADDED_TO      => 'Add track to favorites',
+
+#############
+
+
    SELECT_TRACKS   => 'Select Tracks',
 
    TRACK_SELECT   => 'Search for Specific Tracks',
@@ -132,7 +147,7 @@ END
 
    SUBTRACK_INSTRUCTIONS   => 'Select the tracks you wish to display. Sort the tracks by clicking on the column headings, or by clicking and dragging rows into position.',
 
-   SELECT_SUBTRACKS   => '%d of %d subtracks selected',
+   SELECT_SUBTRACKS   => 'showing %d/%d subtracks',
 
    EDIT       => 'Edit File...',
 
@@ -203,6 +218,10 @@ END
    NEW         => 'New...',
 
    REMOTE_TITLE => 'Add remote annotations',
+
+ #ipad
+   IPAD_BALLOON => 'Tap features twice see more details '
+   #
 
    REMOTE_URL   => 'Enter remote track URL',
 
@@ -415,9 +434,11 @@ END
 
  SHOW_VARIANCE    => 'Show variance band',
 
- APPLY_CONFIG     => 'Apply this config when region >=',
+ APPLY_CONFIG     => 'Apply config when view between',
 
- SHOW_SUMMARY     => 'Show summary when region >=',
+ SHOW_SUMMARY     => 'Show summary when region >',
+
+ FEATURE_SUMMARY     => 'Feature Density Summary',
 
  LINEWIDTH        => 'Line width',
 
@@ -443,9 +464,9 @@ END
 
  CONFIGURE_THIS_TRACK   => '<b>Configure this track</b>',
 
- DOWNLOAD_THIS_TRACK   => '<b>Download this track</b>',
+ DOWNLOAD_THIS_TRACK   => '<b>Download this track test</b>',
 
- ABOUT_THIS_TRACK   => '<b>About this track</b>',
+ ABOUT_THIS_TRACK   => '<b>About track <i>%s</i></b>',
 
  SUBTRACKS_SHOWN    => 'This track contains selectable subtracks. Click to modify the selection or change subtrack order.',
 

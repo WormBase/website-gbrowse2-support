@@ -2,7 +2,7 @@
 description   = Domestic rice chromosome 3
 db_adaptor    = Bio::DB::SeqFeature::Store
 db_args       = -adaptor memory
-                -dir    /usr/local/wormbase/services/gbrowse2/gbrowse-2.26/html/databases/gbrowse_syn/rice
+                -dir    /usr/local/wormbase/services/gbrowse2/current/databases/gbrowse_syn/rice
 
 
 # Web site configuration info

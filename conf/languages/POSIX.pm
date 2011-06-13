@@ -90,9 +90,28 @@ END
 
    DOWNLOAD         => 'Download',
 
+   DOWNLOAD_ALL     => 'Download entire dataset',
+
+   TRACK_ID         => 'Track ID=<b>%s</b>',
+
    DISPLAY_SETTINGS => 'Display Settings',
 
    TRACKS   => 'Tracks',
+   
+  
+# FAVORITE MENU LINKS
+   FAVORITES => 'Show Favorites Only',		
+    
+   SHOWALL   => 'Show All',
+
+   REFRESH_FAV   => 'Refresh Favorites',
+    
+   CLEAR_FAV     => 'Clear All Favorites',
+
+   ADDED_TO     => 'Add track to favorites',
+
+#############
+
 
    SELECT_TRACKS   => 'Select Tracks',
 
@@ -132,7 +151,9 @@ END
 
    SUBTRACK_INSTRUCTIONS   => 'Select the tracks you wish to display. Sort the tracks by clicking on the column headings, or by clicking and dragging rows into position.',
 
-   SELECT_SUBTRACKS   => '%d of %d subtracks selected',
+   SELECT_SUBTRACKS   => 'showing %d/%d subtracks',
+
+   NO_TRACK_CITATION => 'There is no additional information about this track.',
 
    EDIT       => 'Edit File...',
 
@@ -203,6 +224,8 @@ END
    NEW         => 'New...',
 
    REMOTE_TITLE => 'Add remote annotations',
+
+   IPAD_BALLOON => 'Tap features twice to see more details',
 
    REMOTE_URL   => 'Enter remote track URL',
 
@@ -373,6 +396,7 @@ END
 
  ADD_DESCRIPTION    => 'Click to add a description',
  ADD_TITLE          => 'Click to edit the title',
+ EDIT_LABEL         => 'Click to view track. Shift or control-click to edit.',
  NO_DESCRIPTION     => 'No description',
 
  CONFIGURATION     => 'Configuration',
@@ -415,11 +439,16 @@ END
 
  SCALE_MAX        => 'Maximum scale value',
 
+ MIN              => 'Min',
+ MAX              => 'Max',
+
  SHOW_VARIANCE    => 'Show variance band',
 
- APPLY_CONFIG     => 'Apply this config when region >=',
+ APPLY_CONFIG     => 'Apply config when view between',
 
- SHOW_SUMMARY     => 'Show summary when region >=',
+ SHOW_SUMMARY     => 'Show summary when region >',
+
+ FEATURE_SUMMARY     => 'Feature Density Summary',
 
  LINEWIDTH        => 'Line width',
 
@@ -445,9 +474,9 @@ END
 
  CONFIGURE_THIS_TRACK   => '<b>Configure this track</b>',
 
- DOWNLOAD_THIS_TRACK   => '<b>Download this track</b>',
+ DOWNLOAD_THIS_TRACK   => '<b>Download this track test</b>',
 
- ABOUT_THIS_TRACK   => '<b>About this track</b>',
+ ABOUT_THIS_TRACK   => '<b>About track <i>%s</i></b>',
 
  SUBTRACKS_SHOWN    => 'This track contains selectable subtracks. Click to modify the selection or change subtrack order.',
 
