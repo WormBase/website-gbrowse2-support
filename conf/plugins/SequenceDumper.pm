@@ -128,6 +128,7 @@ sub dump {
   my $ps = $segment->primary_seq; 
   $seq->primary_seq(!ref $ps ? Bio::PrimarySeq->new(-seq=>$ps) : $ps);
   $segment->absolute(1);
+
   my $offset     = $segment->start - 1;
   my $segmentend = $segment->length;
   $seq->add_SeqFeature( map {
