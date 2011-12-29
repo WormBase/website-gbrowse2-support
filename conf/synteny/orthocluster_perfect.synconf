@@ -2,7 +2,7 @@
 description =  OrthoCluster Perfect Synteny Blocks
 
 # The synteny database
-join        = dbi:mysql:database=gbrowse_syn_join_orthocluster_perfect;host=localhost;user=nobody
+join        = dbi:mysql:database=gbrowse_syn_join_orthocluster_perfect;host=localhost;user=www-data
 
 #     symbolic src   config file (without the ".conf")    Description
 source_map =      Cele     c_elegans_synteny     "C. elegans"
@@ -28,7 +28,7 @@ examples = Cele X:1050001..1150000
            Cele R193.2
 
 header = sub {
-    my $header = `cat /var/www/conf/gbrowse.conf/test/header.html`;
+    my $header = `cat /usr/local/wormbase/services/gbrowse2/website-gbrowse2-support/conf/synteny/header.html`;
     return $header;
  }
 

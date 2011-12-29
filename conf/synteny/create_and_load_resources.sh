@@ -49,12 +49,12 @@ mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_p_pacificus_genes.* to "
 
 # C. remanei
 cd ~/gbrowse_syn_stuff
-mysql -u root -p3l3g@nz -e 'create database gbrowse_syn_c_remanei_genes_WS204'
-mysql -u root -p3l3g@nz gbrowse_syn_c_remanei_genes_WS204 < db_dumps/c_remanei_WS204_genes.sql
+mysql -u root -p3l3g@nz -e 'create database gbrowse_syn_compara_c_remanei_genes_WS204'
+mysql -u root -p3l3g@nz gbrowse_syn_compara_c_remanei_genes_WS204 < db_dumps/c_remanei_WS204_genes.sql
 cd /usr/local/mysql/data
-ln -s gbrowse_syn_c_remanei_genes_WS204 gbrowse_syn_c_remanei_genes
-mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_c_remanei_genes.* to nobody@localhost'
-mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_c_remanei_genes.* to "www-data"@localhost'
+ln -s gbrowse_syn_compara_c_remanei_genes_WS204 gbrowse_syn_compara_c_remanei_genes
+mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_compara_c_remanei_genes.* to nobody@localhost'
+mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_compara_c_remanei_genes.* to "www-data"@localhost'
 
 # C. remanei mercater
 cd ~/gbrowse_syn_stuff
@@ -80,7 +80,7 @@ cd ~/gbrowse_syn_stuff
 mysql -u root -p3l3g@nz -e 'create database gbrowse_syn_mercater_c_japonica_genes_WS204'
 mysql -u root -p3l3g@nz gbrowse_syn_mercater_c_japonica_genes_WS204 < db_dumps/c_japonica_WS204b_genes.sql
 cd /usr/local/mysql/data
-ln -s gbrowse_syn_mercater_c_japonica_genes_WS204 gbrowse_syn_mercater_c_japonica_mercater_genes
+ln -s gbrowse_syn_mercater_c_japonica_genes_WS204 gbrowse_syn_mercater_c_japonica_genes
 mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_mercater_c_japonica_genes.* to nobody@localhost'
 mysql -u root -p3l3g@nz -e 'grant select on gbrowse_syn_mercater_c_japonica_genes.* to "www-data"@localhost'
 
