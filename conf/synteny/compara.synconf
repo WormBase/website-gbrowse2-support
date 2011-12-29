@@ -27,7 +27,6 @@ initial landmark = Cele X:1050001..1150000
 
 header = sub {
     my $header = `cat /usr/local/wormbase/services/gbrowse2/website-gbrowse2-support/conf/synteny/header.html`;
-    print %ENV;
     return $header;
  }
 
