@@ -8,8 +8,8 @@ db_args       = -adaptor dbi::mysql
 aggregators = gene{coding_exon}
 suppress_menu = 1
 
-buttons     = /gbrowse/images/buttons
-tmpimages   = /gbrowse/tmp
+buttons     = /gbrowse2/images/buttons
+tmpimages   = /gbrowse_syn/tmp
 
 
 # max and default segment sizes for detailed view
