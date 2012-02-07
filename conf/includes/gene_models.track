@@ -2,7 +2,8 @@ category     = Genes
 key          = Gene Models
 bgcolor      = sub {
 	     my $f = shift;
-	     return 'gray'   if $f->method =~ /pseudogene/i;
+	     return 'gray'   if $f->source =~ /pseudogene/i;
+	     return 'gray'  unless $f->method =~  /transcript|UTR|coding_exon/i;
 	     return 'violet' if $f->strand > 0;
 	     return 'turquoise';
 	     }
